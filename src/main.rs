@@ -1,23 +1,26 @@
 #![no_std]
 #![no_main]
-use core::panic::PanicInfo;
-use core::arch::asm;
+extern crate alloc;
+extern crate rlibc;
 
-#[panic_handler]
-fn panic(_info: &PanicInfo) -> ! {
-    loop {}
-}
+use alloc::vec::Vec;
+use pc98_rs::{dos, print, println};
 
 #[link_section = ".startup"]
 #[no_mangle]
-fn _start() {
-    unsafe {
-        asm!(
-            "mov ah, 0x02",
-            "mov dl, 0x41",
-            "int 0x21",
-            "int 0x20",
-        )
-    }
+fn _start() -> ! {
+    main();
+    dos::exit(0);
 }
 
+fn main() {
+    let mut vec = Vec::new();
+    vec.push(0);
+    println!("vec: {:?}", vec);
+    vec.push(1);
+    println!("vec: {:?}", vec);
+    vec.push(2);
+    println!("vec: {:?}", vec);
+    vec.push(3);
+    println!("vec: {:?}", vec);
+}
