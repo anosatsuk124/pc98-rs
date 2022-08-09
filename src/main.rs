@@ -1,7 +1,6 @@
 #![no_std]
 #![no_main]
 extern crate alloc;
-extern crate rlibc;
 
 use alloc::vec::Vec;
 use pc98_rs::{dos, print, println};
@@ -14,13 +13,12 @@ fn _start() -> ! {
 }
 
 fn main() {
-    let mut vec = Vec::new();
-    vec.push(0);
-    println!("vec: {:?}", vec);
-    vec.push(1);
-    println!("vec: {:?}", vec);
-    vec.push(2);
-    println!("vec: {:?}", vec);
-    vec.push(3);
-    println!("vec: {:?}", vec);
+    {
+        let mut vec: Vec<usize> = Vec::new();
+        for v in 0..16 {
+            vec.push(v);
+        }
+        println!("{:?}", vec);
+    }
+    println!("Finished!");
 }

@@ -39,7 +39,7 @@ fn printc(ch: u8) {
         asm!("mov ah, 0x02",
               "int 0x21",
               in("dl") ch,
-              lateout("eax") _,
-              lateout("edx") _);
+              lateout("ax") _,
+              lateout("dx") _);
     }
 }

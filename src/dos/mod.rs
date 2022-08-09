@@ -7,7 +7,7 @@ pub fn exit(rt: u8) -> ! {
         asm!("mov ah, 0x4c",
             "int 0x21",
             in("al") rt,
-            lateout("eax") _);
+            lateout("ax") _);
     }
     loop {}
 }
