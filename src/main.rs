@@ -30,7 +30,6 @@ fn _start() -> ! {
 }
 
 fn main() {
-<<<<<<< HEAD
     {
         let mut vec1: Vec<usize> = Vec::new();
         let mut vec2: Vec<usize> = Vec::new();
@@ -44,7 +43,6 @@ fn main() {
         println!("vec2: {:?}, ptr: {:?}", &vec2, &vec2.as_ptr());
     }
     println!("Finished!");
-=======
     let mut vec = Vec::new();
     vec.push(0);
     println!("vec: {:?}", vec);
@@ -54,5 +52,4 @@ fn main() {
     println!("vec: {:?}", vec);
     vec.push(3);
     println!("vec: {:?}", vec);
->>>>>>> parent of 5c87351 (implemented alloc and dealloc)
 }
