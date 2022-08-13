@@ -1,12 +1,11 @@
 [alias]
-convert = "objcopy --release --bin pc98-rs -- -O binary --binary-architecture=i386:x86 target/i386-rust_dos/release/pc98-rs.com"
+convert = "objcopy --release --bin pc98-rs -- -O binary --binary-architecture=i386:x86 target/i586-rust_dos/release/pc98-rs.com"
 release = "build --release"
 
 [build]
-target = "i386-rust_dos.json"
+target = "i586-rust_dos.json"
 rustflags = ["-C", "link-arg=-Tlink.x"]
 
 [unstable]
 build-std = ["core", "alloc"]
-build-std-features = ["compiler-builtins-mem"]
 
