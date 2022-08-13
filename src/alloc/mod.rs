@@ -11,5 +11,5 @@ fn alloc_error(layout: Layout) -> ! {
 
 #[global_allocator]
 static HEAP: syscall::Alloc = syscall::Alloc {
-    alloc: UnsafeCell::new(0x0),
+    alloc: UnsafeCell::new(0x1000),
 };
